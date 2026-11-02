@@ -7,8 +7,8 @@
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 
 // motor groups
-pros::MotorGroup left_main({-11, -12, -13}, pros::MotorGearset::blue); // left motors grouped together at 600 rpm
-pros::MotorGroup right_main({19, 20, 18}, pros::MotorGearset::blue); // right motors grouped together at 600rpm
+pros::MotorGroup leftMotors({-11, -12, -13}, pros::MotorGearset::blue); // left motors grouped together at 600 rpm
+pros::MotorGroup rightMotors({19, 20, 18}, pros::MotorGearset::blue); // right motors grouped together at 600rpm
 
 // Inertial Sensor on port 7
 pros::Imu imu(7);
@@ -24,8 +24,8 @@ lemlib::TrackingWheel horizontal(&horizontalEnc, lemlib::Omniwheel::NEW_275, -5.
 lemlib::TrackingWheel vertical(&verticalEnc, lemlib::Omniwheel::NEW_275, -2.5);
 
 // drivetrain settings
-lemlib::Drivetrain drivetrain(&left_main, left_small // left motor group
-                              &right_main, right_small // right motor group
+lemlib::Drivetrain drivetrain( &leftMotors, // left motor group
+                               &rightMotors, // right motor group
                               10, // 10 inch track width
                               lemlib::Omniwheel::NEW_4, // using new 4" omnis
                               360, // drivetrain rpm is 360
